@@ -18,9 +18,9 @@ Open the `.env` file and enter the credential details of your app in the followi
 form:
 
 ```
-APP_ID=<app id>
-APP_SECRET=<app_secret>
-APP_REDIRECT=<app_redirect>
+APP_ID=YOUR_APP_ID
+APP_SECRET=YOUR_APP_SECRET
+APP_REDIRECT=YOUR_APP_REDIRECT
 ```
 
 Then start the application.
@@ -38,6 +38,9 @@ Make sure you have the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```
 $ heroku create
+$ heroku config:set APP_ID=YOUR_APP_ID
+$ heroku config:set APP_SECRET=YOUR_APP_SECRET
+$ heroku config:set APP_REDIRECT=YOUR_APP_REDIRECT
 $ git push heroku master
 $ heroku open
 ```

@@ -4,7 +4,7 @@ const request = require('request');
 const qs = require('qs');
 const env = require('node-env-file');
 
-env(__dirname + '/.env');
+env(__dirname + '/.env', {raise: false});
 
 const app = express();
 app.set('port', (process.env.PORT || 5000));
