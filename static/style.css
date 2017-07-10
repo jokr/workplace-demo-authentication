@@ -1,0 +1,13 @@
+body {
+  font-family: sans-serif;
+}
+
+#main {
+  margin: 200px;
+  width: 1000px;
+}
+
+.company {
+  color: #4080ff;
+  font-weight: bold;
+}

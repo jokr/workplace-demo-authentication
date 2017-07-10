@@ -1,0 +1,27 @@
+{
+  "name": "workplace-demo-authentication",
+  "version": "0.2.6",
+  "description": "A sample app to show how a app authenticates with the Graph API",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "2.5.6",
+    "express": "4.15.2",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.2",
+    "request": "^2.81.0",
+    "node-env-file": "^0.1.8",
+    "qs": "^6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jokr/workplace-demo-authentication"
+  },
+  "license": "MIT"
+}

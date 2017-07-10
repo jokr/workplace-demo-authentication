@@ -1,0 +1,55 @@
+html
+  head
+    title Workplace Demo Authentication
+    link(href="style.css", rel="stylesheet", type="text/css")
+  body
+    #main
+      h1 Workplace Demo Authentication
+      p.
+        A demo application demonstrating the Workplace third-party app authentication.
+        Upon redirect the server exchanges the code for an access token and makes
+        an Graph API request to get some basic information about the company.
+
+      h2 Running Locally
+      p.
+        Make sure you have #[a(href="http://nodejs.org/") Node.js] installed.
+      pre.
+        $ git clone <repo>
+        $ cd workplace-demo-authentication
+        $ touch .env
+      p.
+        Open the #[code .env] file and enter the credential details of your app
+        in the following form:
+      pre.
+        APP_ID=YOUR_APP_ID
+        APP_SECRET=YOUR_APP_SECRET
+        APP_REDIRECT=YOUR_APP_REDIRECT
+      p Then start the application.
+      pre.
+        $ npm install
+        $ npm start
+      p.
+        Your app should now be running on
+        #[a(href="http://localhost:5000/") localhost:5000].
+
+      h2 Deploying to Heroku
+      p.
+        Make sure you have the #[a(href="https://cli.heroku.com/") Heroku CLI]
+        installed.
+      pre.
+        $ heroku create
+        $ git push heroku master
+        $ heroku open
+      p or
+      a(href="https://heroku.com/deploy")
+        img(src="https://www.herokucdn.com/deploy/button.png", alt="Deploy to Heroku")
+
+      h2 Documentation
+
+      ul
+        li
+          a(href="https://developers.facebook.com/docs/graph-api/overview") Graph API Overview
+        li
+          a(href="https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow") Manual Login Flows
+        li
+          a(href="https://developers.facebook.com/docs/workplace") Workplace Docs
