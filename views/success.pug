@@ -8,5 +8,10 @@ html
       p.
         The installation successfully completed. We now have an access token
         for #[span.company #{companyName}].
+      p.
+        Your access token is displayed below. You will also need to provide
+        an #[a(href="https://developers.facebook.com/docs/graph-api/securing-requests#appsecret_proof") #[code appsecret_proof]]
+        to every Graph API call.
+      pre=accessToken
       div.image
         img(src="success-fox.png")

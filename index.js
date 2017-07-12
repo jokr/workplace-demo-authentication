@@ -1,8 +1,9 @@
+const crypto = require('crypto');
+const env = require('node-env-file');
 const express = require('express');
 const morgan = require('morgan');
-const request = require('request');
 const qs = require('qs');
-const env = require('node-env-file');
+const request = require('request');
 
 env(__dirname + '/.env', {raise: false});
 
@@ -56,7 +57,7 @@ app.get('/install', (req, res) => {
           );
       }
 
-      let accessToken = parsedBody.access_token;
+      const accessToken = parsedBody.access_token;
       if (!accessToken) {
         return res
           .status(500)
@@ -65,10 +66,14 @@ app.get('/install', (req, res) => {
             {message: 'Response did not contain an access token.'}
           );
       }
-
+      const appsecretProof = crypto
+        .createHmac('sha256', process.env.APP_SECRET)
+        .update(accessToken)
+        .digest('hex');
       const queryString = qs.stringify({
         fields: 'name',
         access_token: accessToken,
+        appsecret_proof: appsecretProof,
       });
 
       request(
@@ -98,7 +103,10 @@ app.get('/install', (req, res) => {
               );
           }
 
-          return res.render('success', {companyName: parsedBody.name});
+          return res.render(
+            'success',
+            {companyName: parsedBody.name, accessToken: accessToken}
+          );
         }
       );
     }

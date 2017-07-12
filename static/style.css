@@ -11,3 +11,13 @@ body {
   color: #4080ff;
   font-weight: bold;
 }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+a {
+  color: #4080ff;
+  text-decoration: none;
+}
