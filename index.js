@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+const baseURL = process.env.BASE_URL || 'https://graph.facebook.com';
+
 app.get('/install', (req, res) => {
   if (!req.query.code) {
     return res
@@ -31,7 +33,7 @@ app.get('/install', (req, res) => {
     code: req.query.code,
   });
   request(
-    'https://graph.facebook.com/oauth/access_token?' + queryString,
+    baseURL + '/oauth/access_token?' + queryString,
     (err, response, body) => {
       if (err) {
         return res
@@ -77,7 +79,7 @@ app.get('/install', (req, res) => {
       });
 
       request(
-        'https://graph.facebook.com/company?' + queryString,
+        baseURL + '/company?' + queryString,
         (err, response, body) => {
           if (err) {
             return res
