@@ -68,14 +68,16 @@ app.get('/install', (req, res) => {
             {message: 'Response did not contain an access token.'}
           );
       }
+      const appsecretTime = Math.floor(Date.now() / 1000);
       const appsecretProof = crypto
         .createHmac('sha256', process.env.APP_SECRET)
-        .update(accessToken)
+        .update(accessToken + '|' + appsecretTime)
         .digest('hex');
       const queryString = qs.stringify({
         fields: 'name',
         access_token: accessToken,
         appsecret_proof: appsecretProof,
+        appsecret_time: appsecretTime,
       });
 
       request(
