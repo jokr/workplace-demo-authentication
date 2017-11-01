@@ -15,7 +15,10 @@ app.use(morgan('dev'));
 app.use(express.static('static'));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  return res.render(
+    'index',
+    {appId: process.env.APP_ID}
+  );
 });
 
 const baseURL = process.env.BASE_URL || 'https://graph.facebook.com';

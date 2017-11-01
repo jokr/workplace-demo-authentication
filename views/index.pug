@@ -3,12 +3,37 @@ html
     title Workplace Demo Authentication
     link(href="style.css", rel="stylesheet", type="text/css")
   body
+    script.
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '#{appId}',
+          xfbml            : true,
+          version          : 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
     #main
       h1 Workplace Demo Authentication
+
       p.
         A demo application demonstrating the Workplace third-party app authentication.
         Upon redirect the server exchanges the code for an access token and makes
         an Graph API request to get some basic information about the company.
+
+      h2 Add to Workplace Button
+
+      fb:add-to-workplace.
+
+      p.
+        Test the install flow using the button above.
 
       h2 Running Locally
       p.
